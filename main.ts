@@ -31,7 +31,7 @@ radio.sendValue("forward", 1)
             if (forward == 1){
                 input.onButtonPressed(Button.AB, function () {
                     basic.clearScreen()
-                    forward = 0
+                    radio.sendValue("forward", 0)
             })
             }
         }
@@ -52,7 +52,7 @@ radio.sendValue("forward", 1)
                 if (left == 1) {
                     input.onButtonPressed(Button.A, function () {
                         basic.clearScreen()
-                        left = 0
+                        radio.sendValue("left", 0)
                     })
                 }
             }
@@ -73,7 +73,7 @@ radio.sendValue("forward", 1)
                 if (right == 1) {
                     input.onButtonPressed(Button.B, function () {
                         basic.clearScreen()
-                        right = 0
+                        radio.sendValue("right", 0)
                     })
                 }
             }
