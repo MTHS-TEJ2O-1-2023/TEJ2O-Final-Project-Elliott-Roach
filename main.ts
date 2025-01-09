@@ -5,4 +5,26 @@
  * This program ...
 */
 
-basic.showString('Hello, World!')
+//setup
+let forward: number = 0
+basic.showIcon(IconNames.Happy)
+
+//moving forward
+if (forward == 0) {
+input.onButtonPressed(Button.A, function () {
+    basic.clearScreen()
+    forward = 1
+        //moving forward
+        while(forward = 1)
+            robotbit.StpCarMove(1, 51)
+})
+}
+
+//stopping
+if (forward == 1){
+    input.onButtonPressed(Button.A, function () {
+        basic.clearScreen()
+        forward = 0
+})
+}
+    
