@@ -14,9 +14,9 @@ if (forward == 0) {
 input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
     forward = 1
-        //moving forward
-        while(forward = 1)
-            robotbit.StpCarMove(1, 51)
+    while(forward = 1){
+        robotbit.StpCarMove(1, 51)
+    }
 })
 }
 
