@@ -6,28 +6,43 @@
 */
 
 //setup
-let forward: number = 0
-radio.setGroup(188)
-basic.showIcon(IconNames.Happy)
+let aNumber: number = 0
+radio.setGroup(88)
 
-//moving forward
+//sending forward
 input.onButtonPressed(Button.AB, function () {
-    basic.clearScreen()
-    forward = 1
-    radio.sendNumber(forward = 1)
-})
-input.onButtonPressed(Button.AB, function () {
-    basic.clearScreen()
-    forward = 0
-    radio.sendNumber(forward = 0)
+    radio.sendNumber(1)
 })
 
+//sending left
+input.onButtonPressed(Button.A, function () {
+    radio.sendNumber(3)
+})
 
-radio.onReceivedNumber(function (forward: 1) {
-        
-            
-        
+//sending right
+input.onButtonPressed(Button.B, function () {
+    radio.sendNumber(5)
+})
+
+//reseving
+radio.onReceivedNumber(function (receivedNumber: number) {
+    aNumber = receivedNumber
+})
+
+//going forward
+basic.forever(function () {
+    if (aNumber == 1) {
         robotbit.StpCarMove(1, 51)
-        basic.pause(10)
     }
-)
+
+    //going right
+    if (aNumber == 5) {
+        robotbit.StpCarTurn(5, 51, 125)
+    }
+
+
+    //going left
+    if (aNumber == 3) {
+        robotbit.StpCarTurn(-5, 51, 125)
+    }
+})
