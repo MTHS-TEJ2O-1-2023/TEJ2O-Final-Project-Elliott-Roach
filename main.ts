@@ -7,7 +7,6 @@
 
 //setup
 let forward: number = 0
-let left: number = 0
 basic.showIcon(IconNames.Happy)
 
 //moving forward
@@ -27,23 +26,4 @@ input.onButtonPressed(Button.AB, function () {
         }
     }
 })
-}
-
-//turning left
-if (left == 0) {
-    input.onButtonPressed(Button.A, function () {
-        basic.clearScreen()
-        left = 1
-        while (left == 1) {
-            robotbit.StpCarTurn(10, 51, 125)
-            basic.pause(10)
-            //stopping
-            if (left == 1) {
-                input.onButtonPressed(Button.A, function () {
-                    basic.clearScreen()
-                    left = 0
-                })
-            }
-        }
-    })
 }
