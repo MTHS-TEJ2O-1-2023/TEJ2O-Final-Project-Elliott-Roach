@@ -6,43 +6,52 @@
 */
 
 //setup
-let aNumber: number = 0
+let command: number = 0
+let resevedCommand: number = 0
 radio.setGroup(88)
 
 //sending forward
 input.onButtonPressed(Button.AB, function () {
     radio.sendNumber(1)
+    command = 1
 })
 
 //sending left
 input.onButtonPressed(Button.A, function () {
     radio.sendNumber(3)
+    command = 3
 })
 
 //sending right
 input.onButtonPressed(Button.B, function () {
     radio.sendNumber(5)
+    command =5
+})
+//stoping
+input.onGesture(Gesture.Shake, function() {
+    radio.sendNumber(0)
+    command = 0
 })
 
 //reseving
 radio.onReceivedNumber(function (receivedNumber: number) {
-    aNumber = receivedNumber
+    resevedCommand = receivedNumber
 })
 
 //going forward
 basic.forever(function () {
-    if (aNumber == 1) {
+    if (resevedCommand == 1) {
         robotbit.StpCarMove(1, 51)
     }
 
     //going right
-    if (aNumber == 5) {
+    if (resevedCommand == 5) {
         robotbit.StpCarTurn(5, 51, 125)
     }
 
 
     //going left
-    if (aNumber == 3) {
+    if (resevedCommand == 3) {
         robotbit.StpCarTurn(-5, 51, 125)
     }
 })
