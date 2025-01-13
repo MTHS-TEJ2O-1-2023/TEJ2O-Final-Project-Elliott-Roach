@@ -2,35 +2,30 @@
  *
  * Created by: Elliott Roach
  * Created on: Jan 2025
- * This program ...
+ * This program controls a remote control car
 */
 
 //setup
-let command: number = 0
 let resevedCommand: number = 0
 radio.setGroup(88)
 
 //sending forward
 input.onButtonPressed(Button.AB, function () {
     radio.sendNumber(1)
-    command = 1
 })
 
 //sending left
 input.onButtonPressed(Button.A, function () {
     radio.sendNumber(3)
-    command = 3
 })
 
 //sending right
 input.onButtonPressed(Button.B, function () {
     radio.sendNumber(5)
-    command =5
 })
-//stoping
+//sending stop
 input.onGesture(Gesture.Shake, function() {
     radio.sendNumber(0)
-    command = 0
 })
 
 //reseving
